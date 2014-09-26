@@ -43,7 +43,11 @@ public class Chatbot
 	
 	/**
 	 * Sets the name of the String.
-	 * @param Name of the String.
+	 * This is a really important method. Add lots of lines.
+	 * See more lines.
+	 * And even more.
+	 * Wowww...
+	 * @param name The new name for the chatbot.
 	 */
 	
 	public void setName(String name)
