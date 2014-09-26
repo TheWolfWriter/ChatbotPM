@@ -21,7 +21,7 @@ public class ChatbotAppController
 	{
 		String result = applicationView.showChatbot("McKell!");
 		
-		if (result.equalsIgnoreCase("exit"))
+		if (mySillyChatbot.quitChecker(result))
 		{
 			quit();
 		}

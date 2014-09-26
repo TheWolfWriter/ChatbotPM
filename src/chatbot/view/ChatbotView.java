@@ -19,6 +19,7 @@ public class ChatbotView
 		
 		JOptionPane.showMessageDialog(null, "Hello, " + currentInput);
 		result = JOptionPane.showInputDialog(null, "Are you done?");
+		
 		return result;
 	}
 }
