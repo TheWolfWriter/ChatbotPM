@@ -10,12 +10,20 @@ public class ChatbotAppController
 	private ChatbotView applicationView;
 	private Chatbot mySillyChatbot;
 	
+	/**
+	 * Controller of the chatbot application.
+	 */
 	
 	public ChatbotAppController()
 	{
 		applicationView = new ChatbotView(this);
 		mySillyChatbot = new Chatbot("Olf");
 	}
+	
+	/**
+	 * Starts the chatbot app.
+	 * Also initiates an "if" quitting option. 
+	 */
 	
 	public void start()
 	{
@@ -26,6 +34,10 @@ public class ChatbotAppController
 			quit();
 		}
 	}
+	
+	/**
+	 * If user chooses to quit, following message will pop up.
+	 */
 	
 	private void quit()
 	{

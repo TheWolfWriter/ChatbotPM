@@ -8,10 +8,21 @@ public class ChatbotView
 {
 	private ChatbotAppController baseController;
 	
+	/**
+	 * Creating a controller for the base.
+	 * @param baseController
+	 */
+	
 	public ChatbotView(ChatbotAppController baseController)
 	{
 		this.baseController = baseController;
 	}
+	
+	/**
+	 * Pop up window at beginning of app.
+	 * @param currentInput
+	 * @return String
+	 */
 	
 	public String showChatbot(String currentInput)
 	{
