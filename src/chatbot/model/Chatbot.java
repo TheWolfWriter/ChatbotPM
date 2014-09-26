@@ -1,5 +1,10 @@
 package chatbot.model;
 
+/**
+ * The chatbot model class. Used for checking and manipulating Strings.
+ * @author S. McKell Nichols
+ * @version 1.1 9/26/14
+ */
 public class Chatbot
 {
 	private String name;
@@ -26,20 +31,40 @@ public class Chatbot
 		return name;
 	}
 	
+	/**
+	 * Returns the number of chats of the Chatbot object.
+	 * @return The current chat count of the Chatbot.
+	 */
+	
 	public int getChatCount()
 	{
 		return chatCount;
 	}
+	
+	/**
+	 * Sets the name of the String.
+	 * @param Name of the String.
+	 */
 	
 	public void setName(String name)
 	{
 		this.name = name;
 	}
 	
+	/**
+	 * Updates the number of chats that there are.
+	 */
+	
 	private void updateChatCount()
 	{
 		chatCount++;
 	}
+	
+	/**
+	 * Quits the checker.
+	 * @param Input of the String.
+	 * @return Quits the checker.
+	 */
 	
 	public boolean quitChecker(String input)
 	{
