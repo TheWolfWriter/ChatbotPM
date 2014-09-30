@@ -27,12 +27,14 @@ public class ChatbotAppController
 	
 	public void start()
 	{
-		String result = applicationView.showChatbot("McKell!");
+		String message = JOptionPane.showInputDialog(null, "Welcome to Chatbot, type in your name.");
 		
-		if (mySillyChatbot.quitChecker(result))
+		while(!mySillyChatbot.quitChecker(message))
 		{
-			quit();
+			message = applicationView.showChatbot(message);
 		}
+		
+		quit();
 	}
 	
 	/**
