@@ -35,26 +35,18 @@ public class ChatbotAppController
 		return mySillyChatbot;
 	}
 	
-	/**
-	 * Starts the chatbot app.
-	 * Also initiates an "if" quitting option. 
-	 */
-	
 	public void start()
 	{
 		String result = applicationView.showChatbotDialog(startMessage);
 		
 		while(!mySillyChatbot.quitChecker(result))
 		{
+			result = mySillyChatbot.processText(result);
 			result = applicationView.showChatbotDialog(result);
 		}
 		
 		quit();
 	}
-	
-	/**
-	 * If user chooses to quit, following message will pop up.
-	 */
 	
 	private void quit()
 	{

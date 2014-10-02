@@ -8,11 +8,6 @@ public class ChatbotView
 {
 	private ChatbotAppController baseController;
 	
-	/**
-	 * Creating a controller for the base.
-	 * @param baseController
-	 */
-	
 	public ChatbotView(ChatbotAppController baseController)
 	{
 		this.baseController = baseController;
@@ -28,7 +23,7 @@ public class ChatbotView
 	{
 		String result = "";
 		
-		result = JOptionPane.showInputDialog(null, basecontroller.getMySillyChatbot() + " says: " + currentInput);
+		result = JOptionPane.showInputDialog(null, baseController.getMySillyChatbot().getName() + " says: " + currentInput);
 		
 		return result;
 	}
@@ -40,6 +35,6 @@ public class ChatbotView
 	
 	public void showChatbotMessage(String currentInput)
 	{
-		JOptionPane.showInputDialog(null, basecontroller.getMySillyChatbot() + " says: " + currentInput);
+		JOptionPane.showInputDialog(null, baseController.getMySillyChatbot() + " says: " + currentInput);
 	}
 }
