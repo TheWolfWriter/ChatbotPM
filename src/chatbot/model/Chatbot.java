@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * The chatbot model class. Used for checking and manipulating Strings.
  * @author S. McKell Nichols
- * @version 1.1 9/26/14
+ * @version 1.2 10/9/14
  */
 public class Chatbot
 {
@@ -75,13 +75,46 @@ public class Chatbot
 	{
 		String result = "";
 		
-		if(memeChecker(currentInput))
+		int randomPosition = (int) (Math.random() * 3);
+		if(currentInput != null)
 		{
-			result = "Wow, " + currentInput + " is a meme. Wahoo!";
-		}
-		else
-		{
-			result = "not a meme, try again";
+			if(randomPosition == 0)
+			{
+				if(stringLengthChecker(currentInput))
+				{
+					result = "too long";
+				}
+				else
+				{
+					result = "short words";
+				}
+			}
+			else if(randomPosition == 1)
+			{
+				if(contentChecker(currentInput))
+				{
+					result = "yup you know the secret";
+				}
+				else
+				{
+					result = "try again another time";
+				}
+			}
+			else
+			{
+				if(memeChecker(currentInput))
+				{
+					result = "Wow, " + currentInput + " is a meme. Wahoo!";
+				}
+				else
+				{
+					result = "not a meme, try again";
+				}
+			}
+			}
+			else
+			{
+				result = "use words";
 		}
 		
 		return result;
@@ -97,9 +130,9 @@ public class Chatbot
 	}
 	
 	/**
-	 * Quits the checker.
-	 * @param Input of the String.
-	 * @return Quits the checker.
+	 * Checks to see if it is a meme.
+	 * @param input String input.
+	 * @return
 	 */
 	
 	private boolean memeChecker(String input)
@@ -125,11 +158,41 @@ public class Chatbot
 		return isAMeme;
 	}
 	
+	private boolean contentChecker(String input)
+	{
+		boolean isYummyContent = false;
+		
+		if (input.contains("yummy"))
+		{
+			isYummyContent = true;
+		}
+		
+		return isYummyContent;
+	}
+	
+	private boolean stringLengthChecker(String input)
+	{
+		boolean isTooLong = false;
+
+		if (input.length() >= 20)
+		{
+			isTooLong = true;
+		}
+		
+		return isTooLong;
+	}
+
+	/**
+	 * Quits the checker.
+	 * @param Input of the String.
+	 * @return Quits the checker.
+	 */
+	
 	public boolean quitChecker(String input)
 	{
 		boolean okToQuit = false;
 		
-		if(input != null && input.equals("exit"))
+		if(input != null && input.equals("sayonara"))
 		{
 			okToQuit = true;
 		}
