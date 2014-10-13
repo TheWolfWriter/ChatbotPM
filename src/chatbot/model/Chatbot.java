@@ -86,6 +86,7 @@ public class Chatbot
 				}
 				else
 				{
+					memeList.add(currentInput);
 					result = "short words";
 				}
 			}
@@ -114,8 +115,8 @@ public class Chatbot
 			}
 			else
 			{
-				result = "use words";
-		}
+				result = "use words!!!!";
+			}
 		
 		return result;
 	}
@@ -158,6 +159,12 @@ public class Chatbot
 		return isAMeme;
 	}
 	
+	/**
+	 * Checks to see if certain words are used.
+	 * @param input String
+	 * @return isYummyContent
+	 */
+	
 	private boolean contentChecker(String input)
 	{
 		boolean isYummyContent = false;
@@ -169,6 +176,12 @@ public class Chatbot
 		
 		return isYummyContent;
 	}
+	
+	/**
+	 * Checks to see how long the responses are and tells the user if the response is too long or too short.
+	 * @param input String
+	 * @return isTooLong
+	 */
 	
 	private boolean stringLengthChecker(String input)
 	{
