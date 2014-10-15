@@ -61,6 +61,10 @@ public class Chatbot
 		this.name = name;
 	}
 	
+	/**
+	 * Adds objects to memeList.
+	 */
+	
 	private void fillTheMemeList()
 	{
 		memeList.add("kitties");
