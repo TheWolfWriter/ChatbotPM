@@ -14,21 +14,30 @@ import chatbot.view.ChatbotView;
 
 public class ChatbotAppController
 {
+	/**
+	 * The instance of the ChatbotView, the View of the application.
+	 */
 	private ChatbotView applicationView;
+	/**
+	 * The instance of the Chatbot, the Model of this application.
+	 */
 	private Chatbot mySillyChatbot;
+	/**
+	 * The message used when starting the application.
+	 */
 	private String startMessage;
+	/**
+	 * The message provided when the user quits the application.
+	 */
 	private String quitMessage;
-	
 	/**
 	 * Reference to GUI Jframe object for the application.
 	 */
-	
 	private ChatbotFrame appFrame;
 	
 	/**
-	 * Controller of the chatbot application.
+	 * Constructor of AppController.
 	 */
-	
 	public ChatbotAppController()
 	{
 		applicationView = new ChatbotView(this);
