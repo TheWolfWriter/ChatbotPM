@@ -4,6 +4,12 @@ import javax.swing.JOptionPane;
 
 import chatbot.controller.ChatbotAppController;
 
+/**
+ * View package for Chatbot.
+ * @author S. McKell Nichols
+ * @version 1.1 10/28/14
+ */
+
 public class ChatbotView
 {
 	private ChatbotAppController baseController;
