@@ -79,7 +79,7 @@ public class Chatbot
 	{
 		String result = "";
 		
-		int randomPosition = (int) (Math.random() * 3);
+		int randomPosition = (int) (Math.random() * 4);
 		if(currentInput != null)
 		{
 			if(randomPosition == 0)
@@ -105,7 +105,7 @@ public class Chatbot
 					result = "try again another time";
 				}
 			}
-			else
+			else if(randomPosition ==2)
 			{
 				if(memeChecker(currentInput))
 				{
@@ -121,7 +121,7 @@ public class Chatbot
 			{
 				result = "use words!!!!";
 			}
-		
+		updateChatCount();
 		return result;
 	}
 	

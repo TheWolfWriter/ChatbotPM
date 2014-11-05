@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 import chatbot.model.Chatbot;
 import chatbot.view.ChatbotFrame;
+import chatbot.view.ChatbotPanel;
 import chatbot.view.ChatbotView;
 
 /**
@@ -54,17 +55,24 @@ public class ChatbotAppController
 	
 	public void start()
 	{
-		String result = applicationView.showChatbotDialog(startMessage);
+		((ChatbotPanel) appFrame.getContentPane()).showTextMessage(startMessage);
 		
-//		while(!mySillyChatbot.quitChecker(result))
-//		{
-//			result = mySillyChatbot.processText(result);
-//			result = applicationView.showChatbotDialog(result);
-//		}
-//		
-//		quit();
+		//ChatbotPanel testPanel = (ChatbotPanel) appFrame.getContentPane();
+		//testPanel.showTextMessage(startMessage);
 	}
 	
+	public String getChatbotDialog(String input)
+	{
+		String result = "";
+		if(mySillyChatbot.quitChecker(input))
+		{
+			quit();
+		}
+		
+		result = mySillyChatbot.processText(input);
+		
+		return result;
+	}
 	
 	/**
 	 * Quit method for the  application.
