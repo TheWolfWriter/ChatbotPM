@@ -48,11 +48,18 @@ public class ChatbotAppController
 		quitMessage = "Goodbye cruel user. :(";
 	}
 	
+	/**
+	 * References chatbot model.
+	 * @return mySillyChatbot
+	 */
 	public Chatbot getMySillyChatbot()
 	{
 		return mySillyChatbot;
 	}
 	
+	/**
+	 * Start method for application.
+	 */
 	public void start()
 	{
 		((ChatbotPanel) appFrame.getContentPane()).showTextMessage(startMessage);
@@ -61,6 +68,11 @@ public class ChatbotAppController
 		//testPanel.showTextMessage(startMessage);
 	}
 	
+	/**
+	 * Gets the dialog for the chatbot.
+	 * @param input
+	 * @return result
+	 */
 	public String getChatbotDialog(String input)
 	{
 		String result = "";
@@ -75,7 +87,7 @@ public class ChatbotAppController
 	}
 	
 	/**
-	 * Quit method for the  application.
+	 * Quit method for the application.
 	 */
 	
 	private void quit()
