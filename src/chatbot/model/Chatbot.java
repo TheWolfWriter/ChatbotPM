@@ -114,11 +114,9 @@ public class Chatbot
 			}
 			//continue for other user info fields
 		}
-		
-		int randomPosition = (int) (Math.random() * 6);
-		
-		if(currentInput != null && currentInput.length() > 0)
+		else if(currentInput != null && currentInput.length() > 0)
 		{
+			int randomPosition = (int) (Math.random() * 6);
 			if(randomPosition == 0)
 			{
 				if(stringLengthChecker(currentInput))
