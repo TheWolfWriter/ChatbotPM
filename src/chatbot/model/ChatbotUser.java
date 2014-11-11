@@ -6,8 +6,18 @@ public class ChatbotUser
 	//at least two different types (String, int, boolean, double....)
 	private String userName;
 	private int age;
-	private boolean lovesMusic;
-	private Boolean playsPiano;
+	private boolean lovesAnimals;
+	private boolean playsPiano;
+	public double height;
+	
+	public ChatbotUser()
+	{
+		this.userName = "";
+		this.age = -18;
+		this.lovesAnimals = false;
+		this.playsPiano = false;
+		this.height = -65;
+	}
 	
 	public String getUserName()
 	{
@@ -19,28 +29,43 @@ public class ChatbotUser
 		this.userName = userName;
 	}
 	
-	public boolean isLovesMusic()
+	public int getAge()
 	{
-		return lovesMusic;
+		return age;
 	}
 	
-	public void setLovesMusic(boolean lovesMusic)
+	public void setAge(int age)
 	{
-		this.lovesMusic = lovesMusic;
+		this.age = age;
 	}
 	
-	public Boolean getPlaysPiano()
+	public boolean isLovesAnimals()
+	{
+		return lovesAnimals;
+	}
+	
+	public void setLovesAnimals(boolean lovesMusic)
+	{
+		this.lovesAnimals = lovesMusic;
+	}
+	
+	public double getHeight()
+	{
+		return height;
+	}
+	
+	public void setHeight(double height)
+	{
+		this.height = height;
+	}
+	
+	public boolean getPlaysPiano()
 	{
 		return playsPiano;
 	}
 	
-	public void setPlaysPiano(Boolean playsPiano)
+	public void setPlaysPiano(boolean playsPiano)
 	{
 		this.playsPiano = playsPiano;
-	}
-	
-	public ChatbotUser()
-	{
-		
 	}
 }

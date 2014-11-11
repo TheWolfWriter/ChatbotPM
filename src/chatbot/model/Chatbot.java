@@ -5,13 +5,30 @@ import java.util.ArrayList;
 /**
  * The chatbot model class. Used for checking and manipulating Strings.
  * @author S. McKell Nichols
- * @version 1.2 10/9/14
+ * @version 1.4 11/11/14 Updated processText and added a checker.
  */
 public class Chatbot
 {
+	/**
+	 * The programmer supplied list of memes.
+	 */
 	private ArrayList<String> memeList;
+	/**
+	 * The name of the Chatbot.
+	 */
 	private String name;
+	/**
+	 * The progammer specified content area for the contentChecker method.
+	 */
 	private int chatCount;
+	/**
+	 * The amount of chats that have occurred with this chatbot.
+	 */
+	private ChatbotUser myUser;
+	/**
+	 * The list of user input for the Chatbot.
+	 */
+	private ArrayList<String> userInputList;
 	
 	/**
 	 * Creates a Chatbot object with the supplied name and initializes the current number of chats to zero.
@@ -21,6 +38,7 @@ public class Chatbot
 	public Chatbot(String name)
 	{
 		memeList = new ArrayList<String>();
+		userInputList = new ArrayList<String>();
 		this.name = name;
 		chatCount = 0;
 		fillTheMemeList();
@@ -79,8 +97,27 @@ public class Chatbot
 	{
 		String result = "";
 		
-		int randomPosition = (int) (Math.random() * 4);
-		if(currentInput != null)
+		if(getChatCount() < 5)
+		{
+			//Ask questions about all data members here
+			//you will need ifs or a switch
+			//assign via myUser.set...
+			if(getChatCount() == 0)
+			{
+				myUser.setUserName(currentInput);
+				result = "Good name" + myUser.getUserName() + " how old are you?";
+			}
+			else if(getChatCount() == 1)
+			{
+				int userAge = Integer.parseInt(currentInput);
+				myUser.setAge(userAge);
+			}
+			//continue for other user info fields
+		}
+		
+		int randomPosition = (int) (Math.random() * 6);
+		
+		if(currentInput != null && currentInput.length() > 0)
 		{
 			if(randomPosition == 0)
 			{
@@ -105,7 +142,7 @@ public class Chatbot
 					result = "try again another time";
 				}
 			}
-			else if(randomPosition ==2)
+			else if(randomPosition == 2)
 			{
 				if(memeChecker(currentInput))
 				{
@@ -116,13 +153,50 @@ public class Chatbot
 					result = "not a meme, try again";
 				}
 			}
+			else if(randomPosition == 3)
+			{
+				//Talk about the user here :D
+			}
+			else if(randomPosition == 4)
+			{
+				//add to our list
+				userInputList.add(currentInput);
+				result = "Thank you for the comment";
 			}
 			else
 			{
-				result = "use words!!!!";
+				if(userInputChecker(currentInput))
+				{
+					
+				}
+				else
+				{
+					
+				}
 			}
+		}
+		else
+		{
+			result = "use words!!!!";
+		}
 		updateChatCount();
 		return result;
+	}
+		
+	private boolean userInputChecker(String userInput)
+	{
+		boolean matchesInput = false;
+		
+		for(int loopCount = 0; loopCount < userInputList.size(); loopCount++)
+		{
+			if(userInput.equalsIgnoreCase(userInputList.get(loopCount)))
+			{
+				matchesInput = true;
+				userInputList.remove(loopCount);
+				loopCount--;
+			}
+		}
+		return matchesInput;
 	}
 	
 	/**

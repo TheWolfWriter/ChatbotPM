@@ -70,8 +70,8 @@ public class ChatbotAppController
 	
 	/**
 	 * Gets the dialog for the chatbot.
-	 * @param input
-	 * @return result
+	 * @param input The text the user enters into the chatbot.
+	 * @return The processed text of the chatbot.
 	 */
 	public String getChatbotDialog(String input)
 	{
