@@ -146,7 +146,7 @@ public class Chatbot
 		}
 		else
 		{
-			double userHeight = Integer.parseInt(input);
+			double userHeight = Double.parseDouble(input);
 			myUser.setHeight(userHeight);
 			userQuestion = "Garsh, you are really old " + myUser.getUserName() + " what else would you like to talk about?";
 		}
