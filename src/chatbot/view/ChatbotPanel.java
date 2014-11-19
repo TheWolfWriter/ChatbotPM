@@ -36,8 +36,8 @@ public class ChatbotPanel extends JPanel
 		firstButton = new JButton("click the button... it is so clicky :D");
 		firstTextField = new JTextField(25);
 		baseLayout = new SpringLayout();
-		
-		chatPane = new JScrollPane();
+		chatPane = new JScrollPane(chatArea);
+		chatArea = new JTextArea(5, 20);
 		
 		setupPane();
 		setupPanel();
@@ -47,8 +47,9 @@ public class ChatbotPanel extends JPanel
 	
 	private void setupPane()
 	{
-		chatArea.setLineWrap(true);;
+		chatArea.setLineWrap(true);
 		chatArea.setWrapStyleWord(true);
+		chatArea.setEditable(false);
 	}
 	
 	private void setupPanel()
@@ -59,8 +60,6 @@ public class ChatbotPanel extends JPanel
 		this.add(firstButton);
 		this.add(firstTextField);
 		this.add(chatPane);
-		chatArea = new JTextArea(5,20);
-		
 		
 		add(chatArea);
 	}
@@ -87,6 +86,7 @@ public class ChatbotPanel extends JPanel
 				showTextMessage(currentInput);
 				showTextMessage(result);
 				firstTextField.setText("");
+				firstTextField.requestFocus();
 			}
 		});
 	}
