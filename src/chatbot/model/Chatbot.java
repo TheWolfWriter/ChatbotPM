@@ -150,7 +150,6 @@ public class Chatbot
 			myUser.setHeight(userHeight);
 			userQuestion = "Garsh, you are really old " + myUser.getUserName() + " what else would you like to talk about?";
 		}
-		//continue for other user info fields
 		
 		return userQuestion;
 	}
@@ -270,7 +269,6 @@ public class Chatbot
 	/**
 	 * Updates the number of chats that there are.
 	 */
-	
 	private void updateChatCount()
 	{
 		chatCount++;
@@ -281,7 +279,6 @@ public class Chatbot
 	 * @param input String input.
 	 * @return
 	 */
-	
 	private boolean memeChecker(String input)
 	{
 		boolean isAMeme = false;
@@ -310,7 +307,6 @@ public class Chatbot
 	 * @param input String
 	 * @return isYummyContent
 	 */
-	
 	private boolean contentChecker(String input)
 	{
 		boolean isYummyContent = false;
@@ -328,7 +324,6 @@ public class Chatbot
 	 * @param input String
 	 * @return isTooLong
 	 */
-	
 	private boolean stringLengthChecker(String input)
 	{
 		boolean isTooLong = false;
@@ -346,7 +341,6 @@ public class Chatbot
 	 * @param Input of the String.
 	 * @return Quits the checker.
 	 */
-	
 	public boolean quitChecker(String input)
 	{
 		boolean okToQuit = false;
