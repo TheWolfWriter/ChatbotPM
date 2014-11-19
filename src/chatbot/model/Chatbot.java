@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * The chatbot model class. Used for checking and manipulating Strings.
  * @author S. McKell Nichols
- * @version 1.4 11/11/14 Updated processText and added a checker.
+ * @version 1.5 11/18/14 Updated processText.
  */
 public class Chatbot
 {
@@ -134,15 +134,21 @@ public class Chatbot
 		}
 		else if(getChatCount() ==2)
 		{
-			
+			boolean userLovesAnimals = Boolean.parseBoolean(input);
+			myUser.setLovesAnimals(userLovesAnimals);
+			userQuestion = "Garsh, you are really old " + myUser.getUserName() + " how tall are you?";
 		}
 		else if(getChatCount() == 3)
 		{
-			
+			Boolean userPlaysPiano = Boolean.parseBoolean(input);
+			myUser.setPlaysPiano(userPlaysPiano);
+			userQuestion = "Garsh, you are really old " + myUser.getUserName() + " how tall are you?";
 		}
 		else
 		{
-			
+			double userHeight = Integer.parseInt(input);
+			myUser.setHeight(userHeight);
+			userQuestion = "Garsh, you are really old " + myUser.getUserName() + " what else would you like to talk about?";
 		}
 		//continue for other user info fields
 		
@@ -190,7 +196,7 @@ public class Chatbot
 		}
 		else if(randomPosition == 3)
 		{
-			//Talk about the user here :D
+			conversation = userTopic(input);
 		}
 		else if(randomPosition == 4)
 		{
@@ -202,17 +208,44 @@ public class Chatbot
 		{
 			if(userInputChecker(input))
 			{
-				
+				conversation = "That was nice - you removed it from the list";
 			}
 			else
 			{
-				
+				 conversation = "That wasn't in the conversation before";
 			}
 		}
 		
 		return conversation;
 	}
+	
+	/**
+	 * Provides output based on the ChatbotUser object. Uses a switch/case structure for testing.
+	 * @param userInput The user input
+	 * @return Resulting conversation.
+	 */
+	private String userTopic(String userInput)
+	{
+		String userBasedResponse = "";
 		
+		int randomUserTopic = (int) (Math.random() * 6);
+				
+		switch(randomUserTopic)
+		{
+			case 1:
+				userBasedResponse = myUser.isLovesAnimals() + " is the response to animals :D";
+				break;
+			case 0:
+				userBasedResponse = myUser.getUserName() + " is a silly name";
+				break;
+			default:
+				userBasedResponse = myUser.getAge() + " is realllllyyyy realllllllyyyyyy old";
+				break;
+		}
+				
+		return userBasedResponse;
+	}
+	
 	private boolean userInputChecker(String userInput)
 	{
 		boolean matchesInput = false;
