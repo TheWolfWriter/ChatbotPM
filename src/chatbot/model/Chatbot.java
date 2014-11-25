@@ -41,6 +41,7 @@ public class Chatbot
 		userInputList = new ArrayList<String>();
 		this.name = name;
 		chatCount = 0;
+		myUser = new ChatbotUser();
 		fillTheMemeList();
 	}
 	
@@ -118,47 +119,49 @@ public class Chatbot
 		String userQuestion = "";
 		int x;
 		
-		//Ask questions about all data members here
-		//you will need ifs or a switch
-		//assign via myUser.set...
 		if(getChatCount() == 0)
 		{
 			myUser.setUserName(input);
-			userQuestion = "Good name" + myUser.getUserName() + " how old are you?";
+			userQuestion = "Hello " + myUser.getUserName() + ". My name is Olf. How old are you? (Only type numbers!)";
 		}
 		else if(getChatCount() == 1)
 		{
 			int userAge = Integer.parseInt(input);
 			myUser.setAge(userAge);
-			userQuestion = "Garsh, you are really old " + myUser.getUserName() + " how tall are you?";
+			userQuestion = "Garsh, you are really old " + myUser.getUserName() + "! How tall are you? (Type it in decimals! i.e. If you are 5 feet 2 inches, type it as 5.2)";
 		}
 		else if(getChatCount() ==2)
 		{
-			boolean userLovesAnimals = Boolean.parseBoolean(input);
-			myUser.setLovesAnimals(userLovesAnimals);
-			userQuestion = "Garsh, you are really old " + myUser.getUserName() + " how tall are you?";
+			double userHeight = Double.parseDouble(input);
+			myUser.setHeight(userHeight);
+			userQuestion = "Fun sized! Whoo! " + myUser.getUserName() + ", what do you like to do for fun?";
 		}
 		else if(getChatCount() == 3)
 		{
 			Boolean userPlaysPiano = Boolean.parseBoolean(input);
 			myUser.setPlaysPiano(userPlaysPiano);
-			userQuestion = "Garsh, you are really old " + myUser.getUserName() + " how tall are you?";
+			userQuestion = "I should try that sometime. I like to play the piano! " + myUser.getUserName() + ", what is your favorite thing in the whole world?";
 		}
 		else
 		{
-			double userHeight = Double.parseDouble(input);
-			myUser.setHeight(userHeight);
-			userQuestion = "Garsh, you are really old " + myUser.getUserName() + " what else would you like to talk about?";
+			boolean userLovesAnimals = Boolean.parseBoolean(input);
+			myUser.setLovesAnimals(userLovesAnimals);
+			userQuestion = "Animals are cooler! " + myUser.getUserName() + ", what else would you like to talk about?";
 		}
 		
 		return userQuestion;
 	}
 	
+	/**
+	 * Selects a random topic for the chatbot to talk about using the user's.
+	 * @param input The conversation the user sends
+	 * @return The conversation.
+	 */
 	private String randomChatConversation(String input)
 	{
 		String conversation = "";
 		
-		int randomPosition = (int) (Math.random() * 6);
+		int randomPosition = (int) (Math.random() * 7);
 		if(randomPosition == 0)
 		{
 			if(stringLengthChecker(input))
@@ -203,6 +206,17 @@ public class Chatbot
 			userInputList.add(input);
 			conversation = "Thank you for the comment";
 		}
+		else if(randomPosition == 5)
+		{
+			if(mashChecker(input))
+			{
+				conversation = mashingDetected(input);
+			}
+			else
+			{
+				conversation = noMashingDeteced(input);
+			}
+		}
 		else
 		{
 			if(userInputChecker(input))
@@ -211,11 +225,52 @@ public class Chatbot
 			}
 			else
 			{
-				 conversation = "That wasn't in the conversation before";
+				conversation = "That wasn't in the conversation before";
 			}
 		}
 		
 		return conversation;
+	}
+	
+	private String mashingDetected(String input)
+	{
+		String mashed = "";
+		
+		mashed = input.substring(input.length()/2);
+		mashed += input.substring(input.length()/2);
+		mashed += input.substring(input.length()/2);
+		mashed += input.substring(input.length()/2);
+		mashed += input.substring(input.length()/2);
+		
+		return mashed;
+	}
+	
+	private String noMashingDeteced(String input)
+	{
+		String noMashing = "Thank you for not mashing your keyboard";
+		if(input.length() > 1)
+		{
+			noMashing += input.substring(input.length()/3, input.length()/2);
+		}
+		
+		return noMashing;
+	}
+	
+	/**
+	 * Checker for keyboard mashing
+	 * @param userInput The user supplied text.
+	 * @return Whether mashing has been detected.
+	 */
+	private boolean mashChecker(String userInput)
+	{
+		boolean isMashing = false;
+		
+		if(userInput.indexOf("rtshdf") > -1)
+		{
+			isMashing = true;
+		}
+		
+		return isMashing;
 	}
 	
 	/**
