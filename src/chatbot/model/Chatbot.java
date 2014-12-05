@@ -262,7 +262,7 @@ public class Chatbot
 	 */
 	private String noMashingDeteced(String input)
 	{
-		String noMashing = "Thank you for not mashing your keyboard";
+		String noMashing = "Thank you for not mashing your keyboard.";
 		if(input.length() > 1)
 		{
 			noMashing += input.substring(input.length()/3, input.length()/2);
