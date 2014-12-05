@@ -15,14 +15,12 @@ public class ChatbotFrame extends JFrame
 	/**
 	 * Reference for the ChatbotPanel of the GUI. 
 	 */
-	
 	private ChatbotPanel basePanel;
 	
 	/**
 	 * Creates a ChatbotFrame with a reference to the ChatbotAppController to pass to the panel for MVC.
 	 * @param baseController The reference to the controller object.
 	 */
-	
 	public ChatbotFrame(ChatbotAppController baseController) 
 	{
 		basePanel = new ChatbotPanel(baseController);
@@ -33,7 +31,6 @@ public class ChatbotFrame extends JFrame
 	/**
 	 * Helper method to load panel into frame, set size, and visibility.
 	 */
-	
 	private void setupFrame()
 	{
 		this.setContentPane(basePanel);

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * The chatbot model class. Used for checking and manipulating Strings.
  * @author S. McKell Nichols
- * @version 1.5 11/18/14 Updated processText.
+ * @version 1.6 12/5/14 Finished documentation.
  */
 public class Chatbot
 {
@@ -34,7 +34,6 @@ public class Chatbot
 	 * Creates a Chatbot object with the supplied name and initializes the current number of chats to zero.
 	 * @param name The supplied name for the Chatbot.
 	 */
-	
 	public Chatbot(String name)
 	{
 		memeList = new ArrayList<String>();
@@ -50,7 +49,6 @@ public class Chatbot
 	 * @param currentInput The supplied text.
 	 * @return The processed text based on checker or other methods.
 	 */
-	
 	public String getName()
 	{
 		return name;
@@ -60,7 +58,6 @@ public class Chatbot
 	 * Returns the number of chats of the Chatbot object.
 	 * @return The current chat count of the Chatbot.
 	 */
-	
 	public int getChatCount()
 	{
 		return chatCount;
@@ -74,7 +71,6 @@ public class Chatbot
 	 * Wowww...
 	 * @param name The new name for the chatbot.
 	 */
-	
 	public void setName(String name)
 	{
 		this.name = name;
@@ -83,7 +79,6 @@ public class Chatbot
 	/**
 	 * Adds objects to memeList.
 	 */
-	
 	private void fillTheMemeList()
 	{
 		memeList.add("kitties");
@@ -94,6 +89,11 @@ public class Chatbot
 		memeList.add("troll face");
 	}
 	
+	/**
+	 * Determines whether or not the user uses words to respond, and if they don't, a response is generated to tell them to do so.
+	 * @param currentInput String
+	 * @return result The chat count and whether or not the user used words.
+	 */
 	public String processText(String currentInput)
 	{
 		String result = "";
@@ -108,12 +108,17 @@ public class Chatbot
 		}
 		else
 		{
-			result = "use words!!!!";
+			result = "You didn't say anything in your reply. Try again.";
 		}
 		updateChatCount();
 		return result;
 	}
 	
+	/**
+	 * A bunch of questions are generated, followed by responses according to those answers.
+	 * @param input String IntroduceUser
+	 * @return userQuestion
+	 */
 	private String introduceUser(String input)
 	{
 		String userQuestion = "";
@@ -166,34 +171,34 @@ public class Chatbot
 		{
 			if(stringLengthChecker(input))
 			{
-				conversation = "too long";
+				conversation = "Too long of a response.";
 			}
 			else
 			{
 				memeList.add(input);
-				conversation = "short words";
+				conversation = "You used words that are too short.";
 			}
 		}
 		else if(randomPosition == 1)
 		{
 			if(contentChecker(input))
 			{
-				conversation = "yup you know the secret";
+				conversation = "Yup, you know the secret.";
 			}
 			else
 			{
-				conversation = "try again another time";
+				conversation = "Try again another time.";
 			}
 		}
 		else if(randomPosition == 2)
 		{
 			if(memeChecker(input))
 			{
-				conversation = "Wow, " + input + " is a meme. Wahoo!";
+				conversation = "Wow, '" + input + "' is a meme. Wahoo!";
 			}
 			else
 			{
-				conversation = "not a meme, try again";
+				conversation = "Not a meme, try again.";
 			}
 		}
 		else if(randomPosition == 3)
@@ -204,7 +209,7 @@ public class Chatbot
 		{
 			//add to our list
 			userInputList.add(input);
-			conversation = "Thank you for the comment";
+			conversation = "Thank you for the comment.";
 		}
 		else if(randomPosition == 5)
 		{
@@ -221,17 +226,22 @@ public class Chatbot
 		{
 			if(userInputChecker(input))
 			{
-				conversation = "That was nice - you removed it from the list";
+				conversation = "That was nice - you removed it from the list.";
 			}
 			else
 			{
-				conversation = "That wasn't in the conversation before";
+				conversation = "That wasn't in the conversation before.";
 			}
 		}
 		
 		return conversation;
 	}
 	
+	/**
+	 * Adds substrings that are mashed over and over again while adding more mashing.
+	 * @param input String mashingDetected
+	 * @return mashed
+	 */
 	private String mashingDetected(String input)
 	{
 		String mashed = "";
@@ -245,6 +255,11 @@ public class Chatbot
 		return mashed;
 	}
 	
+	/**
+	 * Message generated when the user doesn't hit enter a million times.
+	 * @param input String noMashingDetected
+	 * @return noMashing
+	 */
 	private String noMashingDeteced(String input)
 	{
 		String noMashing = "Thank you for not mashing your keyboard";
@@ -287,13 +302,13 @@ public class Chatbot
 		switch(randomUserTopic)
 		{
 			case 1:
-				userBasedResponse = myUser.isLovesAnimals() + " is the response to animals :D";
+				userBasedResponse = myUser.isLovesAnimals() + " is the response to animals. :D";
 				break;
 			case 0:
-				userBasedResponse = myUser.getUserName() + " is a silly name";
+				userBasedResponse = myUser.getUserName() + " is a fantastic name. You must have an excellent moustache too.";
 				break;
 			default:
-				userBasedResponse = myUser.getAge() + " is realllllyyyy realllllllyyyyyy old";
+				userBasedResponse = myUser.getAge() + " is realllllyyyy realllllllyyyyyy old.";
 				break;
 		}
 				

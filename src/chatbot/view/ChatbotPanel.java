@@ -16,19 +16,40 @@ import chatbot.controller.ChatbotAppController;
 /**
  * GUI Panel class for Chatbot. Sets up the panel.
  * @author S. McKell Nichols
- * @version 1.1 10/21/14
+ * @version 1.2 12/5/14 Updated documentation
  */
 
 public class ChatbotPanel extends JPanel
 {
+	/**
+	 * Declares the baseController ChatbotAppController for the class.
+	 */
 	private ChatbotAppController baseController;
-	
+	/**
+	 * Declares firstButton as a JButton in the class.
+	 */
 	private JButton firstButton;
+	/**
+	 * Declares firstTextField as a JTextField in the class.
+	 */
 	private JTextField firstTextField;
+	/**
+	 * Declares baseLayout as a SpringLayout in the class.
+	 */
 	private SpringLayout baseLayout;
+	/**
+	 * Declares chatArea as a JTextArea in the class.
+	 */
 	private JTextArea chatArea;
+	/**
+	 * Declares chatPane as a JScrollPane in the class.
+	 */
 	private JScrollPane chatPane;
 	
+	/**
+	 * Sets up the GUI for the baseController. Sets up the components that will be used.
+	 * @param baseController ChatbotAppController
+	 */
 	public ChatbotPanel(ChatbotAppController baseController) 
 	{
 		this.baseController = baseController;
@@ -45,6 +66,9 @@ public class ChatbotPanel extends JPanel
 		setupListeners();
 	}
 	
+	/**
+	 * Sets up what the screen looks like in the app.
+	 */
 	private void setupPane()
 	{
 		chatArea.setLineWrap(true);
@@ -52,6 +76,9 @@ public class ChatbotPanel extends JPanel
 		chatArea.setEditable(false);
 	}
 	
+	/**
+	 * Sets up the panel for the GUI.
+	 */
 	private void setupPanel()
 	{
 		this.setBackground(Color.DARK_GRAY);
@@ -64,6 +91,9 @@ public class ChatbotPanel extends JPanel
 		add(chatArea);
 	}
 	
+	/**
+	 * Place to store layout coding as it appears.
+	 */
 	private void setupLayout()
 	{
 		baseLayout.putConstraint(SpringLayout.NORTH, firstButton, 12, SpringLayout.SOUTH, firstTextField);
@@ -75,6 +105,9 @@ public class ChatbotPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.SOUTH, chatArea, -26, SpringLayout.NORTH, firstTextField);
 	}
 	
+	/**
+	 * Sets up the listeners for the class. In this case, we have one button.
+	 */
 	private void setupListeners()
 	{
 		firstButton.addActionListener(new ActionListener()
@@ -91,6 +124,10 @@ public class ChatbotPanel extends JPanel
 		});
 	}
 	
+	/**
+	 * Shows the message replies for the user with what the user said.
+	 * @param userInput
+	 */
 	public void showTextMessage(String userInput)
 	{
 		chatArea.append("\n" + userInput);
